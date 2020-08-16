@@ -1,0 +1,84 @@
+page-signin-modal {
+
+  label[for="email"],
+  label[for="password"] {
+    position: absolute;
+    left: 4.27%;
+    right: 4.27%;
+    color: #000634;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 22px;
+    text-align: start;
+  }
+
+  label[for="email"] {
+    top: 40.15%;
+  }
+
+  label[for="password"] {
+    top: 52.15%;
+  }
+
+  input[type="text"] {
+    top: 44.15%;
+  }
+
+  input[type="password"] {
+    top: 56.15%;
+  }
+
+  .login-btn,
+  .login-btn.activated {
+    top: 67.07%;
+    bottom: 32.02%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: -0.41px;
+    text-transform: none;
+    border-radius: 5px;
+  }
+
+  .facebook-btn,
+  .facebook-btn.activated {
+    top: 74.48%;
+    bottom: 9.61%;
+    background: color($colors, default);
+    border: 1px solid #000634;
+    color: color($colors, primary);
+  }
+
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .no-account {
+    position: absolute;
+    top: 93.35%;
+    bottom: 3.94%;
+    color: color($colors, primary);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+
+    span {
+      color: #50a1fd;
+    }
+  }
+
+  .logo {
+    position: absolute;
+    left: 0%;
+    right: 0.1%;
+    top: 6%;
+    bottom: 0%;
+    text-align: center;
+  }
+}

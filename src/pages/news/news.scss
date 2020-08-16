@@ -1,0 +1,141 @@
+page-news {
+  ion-icon {
+    &[class*="custom-"] {
+      mask-size: contain;
+      mask-position: 50% 50%;
+      mask-repeat: no-repeat;
+      background: currentColor;
+      width: 1em;
+      height: 1em;
+      color: white;
+      box-shadow: 0px 0.5px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    &[class*="custom-mobile"] {
+      mask-image: url(../../assets/imgs/filter-outline.svg);
+      margin-right: 10px;
+    }
+  }
+
+  .toolbar-title-ios,
+  .toolbar-title-md {
+    font-weight: bold !important;
+    font-size: 17px !important;
+    line-height: 22px !important;
+  }
+
+  .toolbar-title-md {
+    padding: 0 0 0 12%;
+  }
+
+  .highlight {
+    display: flex;
+    flex-direction: row;
+    width: 100% !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+
+    .card-content-ios,
+    .card-content-md {
+      padding: 0;
+    }
+
+    .card-title-ios,
+    .card-title-md {
+      padding: 0;
+    }
+  }
+
+  .card-image {
+    width: 50%;
+  }
+
+  .card-image img {
+    border-radius: 5px;
+    width: 90%;
+    height: 80%;
+  }
+
+  .text-title {
+    text-align: start;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: -0.41px;
+    font-weight: bold;
+  }
+
+  .slide-zoom .time-text-slider {
+    text-align: right;
+    font-size: 13px;
+    line-height: 18px;
+    font-style: italic;
+    color: #000000;
+    white-space: nowrap;
+  }
+
+  ion-slides {
+    width: 100%;
+    height: 35%;
+  }
+
+  button.swiper-pagination-bullet {
+    display: none;
+  }
+
+  .category {
+    text-align: start;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .news-card {
+    display: initial !important;
+  }
+
+  .news-card img {
+    height: 30%;
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  .news-content {
+    padding: 0;
+  }
+
+  .time-text {
+    text-align: right;
+    font-size: 13px;
+    line-height: 18px;
+    font-style: italic;
+    color: #000000;
+  }
+
+  .news-title {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: bold;
+    text-align: start;
+  }
+
+  p {
+    font-weight: normal;
+    font-size: 13px !important;
+    line-height: 18px !important;
+    padding: 10px 0;
+  }
+
+  .favourite ion-icon {
+    color: #010a53;
+    padding: 0;
+    font-size: 25px;
+  }
+
+  .favourite {
+    text-align: left;
+  }
+
+  .news-card ion-card-content {
+    border-bottom: 1px solid #d3d3d3;
+  }
+}

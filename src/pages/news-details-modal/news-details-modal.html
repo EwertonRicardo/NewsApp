@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title class="text modal-title">
+      {{newsDetails.title}}
+      <div class="sub-title">
+        <p class="sub-title-text">{{newsDetails.url}}</p>
+      </div>
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button (click)="shareNews()">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card class="news-card">
+    <img src="{{newsDetails.image_url}}" />
+    <ion-card-content class="news-content">
+      <ion-row>
+        <ion-col col-6 class="favourite" (click)="markFavourite()">
+          <ion-icon name="{{newsDetails.favourite  ? 'ios-bookmark' : 'ios-bookmark-outline'}}"></ion-icon>
+        </ion-col>
+        <ion-col col-6>
+          <div class="time-text">
+            {{newsDetails.published_at}}
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-card-title class="text news-title">
+        {{newsDetails.title}}
+      </ion-card-title>
+      <p class="news-content-text">{{newsDetails.description}}</p>
+      <p class="news-content-text">{{newsDetails.content}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

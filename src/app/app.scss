@@ -1,6 +1,5 @@
 // http://ionicframework.com/docs/theming/
 
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -14,3 +13,217 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+ion-content {
+  background-color: #ffffff;
+}
+
+ion-buttons[start] {
+  order: 2;
+}
+
+button {
+  position: absolute;
+  text-align: center;
+  font-family: 'Roboto';
+}
+
+.toolbar-title-md {
+  padding: 0 12px 0 0;
+}
+
+.bar-button-md {
+  margin: 0;
+  padding: 0;
+}
+
+.btn {
+  border-radius: 5px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: -0.41px;
+  text-transform: none;
+}
+
+.text {
+  font-family: Roboto;
+  font-style: normal;
+  text-align: center;
+  letter-spacing: -0.41px;
+}
+
+// ion-title {
+//     font-size: 17px !important;
+//     line-height: 22px !important;
+//     text-align: center;
+//     color: color($colors, default);
+// }
+
+// .toolbar-title-md,
+// .toolbar-title-ios {
+//     font-size: 17px;
+//     line-height: 22px;
+// }
+
+ion-icon {
+  color: color($colors, default);
+  padding: 0 1rem;
+  font-size: 20px;
+}
+
+input[type="text"],
+input[type="password"] {
+  position: absolute;
+  left: 4.27%;
+  right: 4.27%;
+  background: #f0f0f0;
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
+  width: 91%;
+  min-height: 40px;
+}
+
+/* #region Toast */
+.toast-ios,
+.toast-md {
+  background: none;
+}
+
+.toast-button {
+  position: 0px 0px 0px 16px;
+  margin: 0px 0px 0px 16px;
+  font-size: 16px !important;
+  font-weight: bold;
+}
+
+.toast-wrapper {
+  background-color: transparent !important;
+  left: 16px !important;
+  right: 16px !important;
+  bottom: 16px !important;
+  transform: translateY(-16px) !important;
+  width: calc(100% - 32px) !important;
+}
+
+.toast-container {
+  width: 100%;
+  background-color: #007F7B !important;
+  color: #007F7B !important;
+  border-radius: 11px;
+}
+
+.toast-message {
+  font-size: 14px !important;
+  font-weight: bold;
+  padding: 20px;
+  width: 100%;
+  white-space: pre-line;
+}
+
+.toast-error .toast-container {
+  background-color: map-get($colors, danger) !important;
+}
+
+.toast-success .toast-container {
+  background-color: map-get($colors, primary) !important;
+}
+
+.toast-alert .toast-container {
+  background-color: #ECB11F !important;
+}
+
+.loading-bkgr {
+  background: #e0e3e6;
+}
+
+.loading-default {
+  opacity: 0;
+  animation: fade-in 0.1s ease-in 0.5s forwards;
+}
+/* #end region */
+
+/* #region Alerts */
+.custom-alert {
+  .alert-wrapper {
+    opacity: 0.9;
+    border-radius: 13px;
+    max-width: 270px;
+    background-color: map-get($colors, light);
+    box-shadow: unset;
+  }
+
+  .alert-head {
+    padding: 24px 24px 0;
+  }
+
+  .alert-title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .alert-message {
+    text-align: center;
+    font-size: 13px;
+    color: inherit;
+    padding: 0 16px 21px;
+    white-space: pre-wrap;
+  }
+
+  .alert-button-group {
+    padding: 0;
+  }
+
+  .alert-button {
+    margin: 0;
+    border-radius: 0;
+    flex: 1 1 auto;
+    min-width: 50%;
+    height: 44px;
+    border-top: 0.55px solid map-get($colors, light-blue);
+    font-size: 17px;
+    background-color: map-get($colors, light-blue);
+    color: map-get($colors, dark);
+
+    .button-inner {
+      justify-content: center;
+      text-transform: capitalize;
+    }
+  }
+
+  .alert-button:first-child {
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .alert-button:last-child {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 13px;
+    border-left: 0.55px solid map-get($colors, light-blue);
+    background-color: map-get($colors, secondary);
+    color: #fff;
+    font-weight: bold;
+  }
+
+  .alert-button:only-child {
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+  }
+
+  &.ok .alert-button:last-child {
+    border-left: unset;
+    background-color: map-get($colors, danger);
+    color: #fff;
+  }
+
+  &.ok.btn-blue .alert-button:last-child {
+    background-color: map-get($colors, primary);
+  }
+}
+
+/* #endregion */

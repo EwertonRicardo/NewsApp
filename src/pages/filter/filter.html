@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title class="text filter-title"> Filtro</ion-title>
+    <ion-buttons end>
+      <button ion-button>Limpar</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="filter-options">
+    <ion-item>
+      <ion-label class="text">Data</ion-label>
+      <ion-select interface="popover">
+        <ion-option>Todas</ion-option>
+        <ion-option>teste 1</ion-option>
+        <ion-option>teste 2</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        Apenas favoritos
+      </ion-label>
+      <div item-end>
+        <ion-toggle [(ngModel)]="selectFavourite"></ion-toggle>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <div class="footer" (click)="filter()">
+    <div class="text footer-text">
+      Filtrar
+    </div>
+  </div>
+</ion-content>

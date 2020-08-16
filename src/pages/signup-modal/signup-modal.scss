@@ -1,0 +1,63 @@
+page-signup-modal {
+
+  label[for="email"],
+  label[for="password"],
+  label[for="name"],
+  label[for="confirmPassword"],
+  label[for="birthDay"] {
+    position: absolute;
+    left: 4.27%;
+    right: 4.27%;
+    color: #000634;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 22px;
+    text-align: start;
+  }
+
+  label[for="name"] {
+    top: 13.15%;
+  }
+
+  label[for="email"] {
+    top: 25.15%;
+  }
+
+  label[for="password"] {
+    top: 37.15%;
+  }
+
+  label[for="confirmPassword"] {
+    top: 49.15%;
+  }
+
+  label[for="birthDay"] {
+    top: 61.15%;
+  }
+
+  input[name="name"] {
+    top: 16.75%;
+  }
+
+  input[name="email"] {
+    top: 28.82%;
+  }
+
+  input[name="password"] {
+    top: 40.89%;
+  }
+
+  input[name="confirmPassword"] {
+    top: 52.96%;
+  }
+
+  input[name="birthDay"] {
+    top: 65.02%;
+  }
+
+  .register-btn {
+    top: 77.88%;
+    bottom: 19.21%;
+    border-radius: 5px;
+  }
+}

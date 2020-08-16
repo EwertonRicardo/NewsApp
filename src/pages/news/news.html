@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-navbar hideBackButton color="primary">
+    <ion-title class="text">Mesa news</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="navigateToFilterPage()">
+        <ion-icon name="custom-mobile"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+
+  <ion-row no-padding>
+    <ion-col class="text category">
+      Destaques
+    </ion-col>
+  </ion-row>
+
+  <ion-slides pager *ngIf="highlights && highlights.length > 0">
+    <ion-slide *ngFor="let highlight of highlights">
+      <ion-card class="highlight">
+        <div class="card-image" (click)="openNewsDetail(highlight)">
+          <img src="{{highlight.image_url}}" />
+        </div>
+        <div style="width: 50%;">
+          <ion-card-content>
+            <span (click)="openNewsDetail(highlight)">
+              <ion-card-title class="text text-title">
+                {{highlight.title}}
+              </ion-card-title>
+            </span>
+            <ion-row>
+              <ion-col no-padding col-3 class="favourite" (click)="markFavourite(highlight)">
+                <ion-icon name="{{highlight.favourite  ? 'ios-bookmark' : 'ios-bookmark-outline'}}"></ion-icon>
+              </ion-col>
+              <ion-col no-padding col-8 class="time-text-slider">{{highlight.published_at}}</ion-col>
+            </ion-row>
+          </ion-card-content>
+        </div>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+
+  <ion-row no-padding>
+    <ion-col class="text category">
+      Últimas notícias
+    </ion-col>
+  </ion-row>
+
+  <div *ngIf="news.data && news.data.length > 0">
+  <ion-card class="news-card"  *ngFor="let info of news.data">
+    <div (click)="openNewsDetail(info)">
+      <img src="{{info.image_url}}" />
+    </div>
+    <ion-card-content class="news-content">
+      <ion-row>
+        <ion-col col-6 class="favourite" (click)="markFavourite(info)">
+          <ion-icon name="{{info.favourite  ? 'ios-bookmark' : 'ios-bookmark-outline'}}"></ion-icon>
+        </ion-col>
+        <ion-col col-6>
+          <div class="time-text">
+            {{info.published_at}}
+          </div>
+        </ion-col>
+      </ion-row>
+      <div (click)="openNewsDetail(info)">
+        <ion-card-title class="text news-title">
+          {{info.title}}
+        </ion-card-title>
+        <p>{{info.description}}</p>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</div>
+</ion-content>

@@ -1,0 +1,66 @@
+page-initial-screen {
+  ion-content {
+    background-color: color($colors, primary) !important;
+  }
+
+  .facebook,
+  .email {
+    top: 74.63%;
+    bottom: 19.46%;
+  }
+
+  .facebook,
+  .facebook.activated {
+    color: #0075ff;
+    background-color: color($colors, default);
+    margin: 0px 0px 16px 0px;
+  }
+
+  .email,
+  .email.activated {
+    color: color($colors, default);
+    border-color: color($colors, default);
+  }
+
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .no-account {
+    position: absolute;
+    top: 93.35%;
+    bottom: 3.94%;
+    color: color($colors, default);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+
+    span {
+      color: #50a1fd;
+    }
+  }
+
+  .logo {
+    position: absolute;
+    left: 0%;
+    right: 0.1%;
+    top: 20%;
+    bottom: 0%;
+    text-align: center;
+  }
+
+  .logo div:first-child {
+    padding-bottom: 19px;
+  }
+
+  .logo-text {
+    font-weight: 900;
+    font-size: 19px;
+    line-height: 35px;
+    letter-spacing: 25px;
+    color: color($colors, default);
+  }
+}

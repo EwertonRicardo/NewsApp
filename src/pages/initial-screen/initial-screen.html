@@ -1,0 +1,20 @@
+<ion-content padding>
+  <div class="logo"> 
+    <div>
+      <img src="../../assets/imgs/mesa-logo.svg" alt="">
+    </div>
+    <div>
+      <img src="../../assets/imgs/logo-text.svg">
+    </div>
+    
+  </div>
+  
+  <button ion-button block class="facebook btn">Entrar com o facebook</button>
+  <button ion-button block outline class="email btn" (click)="signinPage()">Entrar com e-mail</button>
+
+  <div class="flex">
+    <div class="text no-account">
+      Não tenho conta. <span (click)="signupPage()">Cadastrar</span>
+    </div>
+  </div>
+</ion-content>

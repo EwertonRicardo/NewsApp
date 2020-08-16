@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title class="text">Cadastrar</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <label for="name">Nome</label>
+  <input type="text" name="name" [(ngModel)]="user.name">
+
+  <label for="email" class="text">E-mail</label>
+  <input type="text" name="email" [(ngModel)]="user.email">
+
+  <label for="password">Senha</label>
+  <input type="password" name="password" [(ngModel)]="user.password">
+
+  <label for="confirmPassword">Confirmar senha</label>
+  <input type="password" name="confirmPassword" [(ngModel)]="confirmPassword">
+
+  <label for="birthDay">Data de nascimento-opcional</label>
+  <input type="text" name="birthDay" [(ngModel)]="user.birthday">
+
+  <button ion-button block class="register-btn btn" (click)="register()">Cadastrar</button>
+
+
+</ion-content>

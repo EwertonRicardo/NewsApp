@@ -11,14 +11,16 @@ import { SignupModalPage } from '../pages/signup-modal/signup-modal';
 import { NewsPage } from '../pages/news/news';
 import { NewsDetailsModalPage } from '../pages/news-details-modal/news-details-modal';
 import { FilterPage } from '../pages/filter/filter';
-import { UserProvider } from '../providers/user/user';
-import { NewsProvider } from '../providers/news/news';
+import { UserProvider } from '../providers/user/user.provider';
+import { NewsProvider } from '../providers/news/news-provider';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { StorageService } from '../services/storage.service';
 import { LoadingService } from '../services/loading.service';
 import { AlertService } from '../services/alert.service';
 import { ToastService } from '../services/toast.service';
+import { PopoverComponent } from '../components/popover/popover';
+import { SocialSharing} from '@ionic-native/social-sharing';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { ToastService } from '../services/toast.service';
     SignupModalPage,
     NewsPage,
     NewsDetailsModalPage,
-    FilterPage
+    FilterPage, 
+    PopoverComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import { ToastService } from '../services/toast.service';
     SignupModalPage,
     NewsPage,
     NewsDetailsModalPage,
-    FilterPage,   
+    FilterPage,
+    PopoverComponent    
   ],
   providers: [
     StatusBar,
@@ -56,7 +60,8 @@ import { ToastService } from '../services/toast.service';
     StorageService,
     LoadingService,
     AlertService,
-    ToastService
+    ToastService,
+    SocialSharing    
   ]
 })
 export class AppModule { }

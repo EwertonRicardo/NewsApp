@@ -5,7 +5,7 @@ import { FilterPage } from '../filter/filter';
 import { NewsModel } from '../../models/news.model';
 import { LoadingService } from '../../services/loading.service';
 import { AlertService } from '../../services/alert.service';
-import { NewsProvider } from '../../providers/news/news';
+import { NewsProvider } from '../../providers/news/news-provider';
 import { HighlightsModel } from '../../models/highlights.model';
 import { StorageService } from '../../services/storage.service';
 
@@ -34,18 +34,16 @@ export class NewsPage {
   }
 
   async ionViewDidLoad() {
-
     await this.loadData();
     await this.showFavouritedNews();
-
   }
 
 
-  public async loadData(): Promise<void> {
+  public async loadData(page?: number): Promise<void> {
     try {
       await this.loadingService.present(undefined, true);
 
-      const allNews = await this.newsProvider.fetchNews();
+      const allNews = await this.newsProvider.fetchNews(page);
       const hightLights = await this.newsProvider.fetchHighLights();
 
       if (allNews && allNews.data.length > 0) {
@@ -135,4 +133,25 @@ export class NewsPage {
     }
   }
 
+  public infiniteScroll(event): void {
+    setTimeout(async () => {
+      await this.loadMoreData();
+      event.complete();
+    }, 500);
+  }
+
+  public async loadMoreData(): Promise<void> {
+    if (this.news.pagination.current_page <= this.news.pagination.total_pages) {
+      if (this.news.pagination.current_page == 1) this.news.pagination.current_page += 1;
+      const loadMoreNews = await this.newsProvider.fetchNews(this.news.pagination.current_page);
+      this.news.pagination = loadMoreNews.pagination;
+      this.news.pagination.current_page += 1;
+
+      loadMoreNews.data.forEach(n => {
+        this.news.data.push(new HighlightsModel(n));
+      });
+      this.setHighLights();
+      await this.showFavouritedNews();
+    }
+  }
 }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, ViewController, ModalController } from 'ionic-angular';
 import { SignupModalPage } from '../signup-modal/signup-modal';
 import { NewsPage } from '../../pages/news/news';
-import { UserProvider } from '../../providers/user/user';
+import { UserProvider } from '../../providers/user/user.provider';
 import { StorageService } from '../../services/storage.service';
 import { LoadingService } from '../../services/loading.service';
 import { UserModel } from '../../models/user.model';
@@ -70,5 +70,9 @@ export class SigninModalPage {
 
   public nextPage(): void {
     this.navCtrl.push(NewsPage);
+  }
+
+  public checkIsValid(): boolean {
+    return this.user.email === '' || this.user.password === '';
   }
 }

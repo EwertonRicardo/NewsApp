@@ -11,24 +11,25 @@ import { HighlightsModel } from '../../models/highlights.model';
 @Injectable()
 export class NewsProvider {
 
-  public readonly BASE_URL = `${ENV.BASE_URL}v1/client/news/`;
+  public readonly BASE_URL = `${ENV.BASE_URL}v1/client/`;
   constructor(
     public http: HttpClient,
     private storageService: StorageService
   ) { }
 
-  async fetchNews(): Promise<NewsModel> {
+  async fetchNews(page?: number): Promise<NewsModel> {
     try {
       const token = await this.storageService.getToken();
       let header = {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       }
-      
-      const response = await this.http.get(this.BASE_URL, { headers: header })
+      let current_page = page ? `?current_page=${page}` : '';
+      let url = `${this.BASE_URL}news${current_page}`;
+      const response = await this.http.get(url, { headers: header })
         .pipe(
           map(
-            (data: NewsModel) => new NewsModel(data)
+            (data: NewsModel) => data
           )
         ).toPromise();
 
@@ -49,7 +50,7 @@ export class NewsProvider {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       }
-      let url = `${this.BASE_URL}highlights`;
+      let url = `${this.BASE_URL}news/highlights`;
       const response = await this.http.get(url, { headers: header })
         .pipe(
           map(

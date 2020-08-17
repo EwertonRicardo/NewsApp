@@ -6,7 +6,12 @@ export class NewsModel {
         per_page: number;
         total_pages: number;
         total_items: number;
-    };
+    } = {
+            current_page: 0,
+            per_page: 0,
+            total_pages: 0,
+            total_items: 0
+        };
     data: HighlightsModel[] = [];
 
     constructor(values = {}) {

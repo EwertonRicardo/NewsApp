@@ -49,28 +49,32 @@
   </ion-row>
 
   <div *ngIf="news.data && news.data.length > 0">
-  <ion-card class="news-card"  *ngFor="let info of news.data">
-    <div (click)="openNewsDetail(info)">
-      <img src="{{info.image_url}}" />
-    </div>
-    <ion-card-content class="news-content">
-      <ion-row>
-        <ion-col col-6 class="favourite" (click)="markFavourite(info)">
-          <ion-icon name="{{info.favourite  ? 'ios-bookmark' : 'ios-bookmark-outline'}}"></ion-icon>
-        </ion-col>
-        <ion-col col-6>
-          <div class="time-text">
-            {{info.published_at}}
-          </div>
-        </ion-col>
-      </ion-row>
+    <ion-card class="news-card" *ngFor="let info of news.data">
       <div (click)="openNewsDetail(info)">
-        <ion-card-title class="text news-title">
-          {{info.title}}
-        </ion-card-title>
-        <p>{{info.description}}</p>
+        <img src="{{info.image_url}}" *ngIf="info.image_url"/>
       </div>
-    </ion-card-content>
-  </ion-card>
-</div>
+      <ion-card-content class="news-content">
+        <ion-row>
+          <ion-col col-6 class="favourite" (click)="markFavourite(info)">
+            <ion-icon name="{{info.favourite  ? 'ios-bookmark' : 'ios-bookmark-outline'}}"></ion-icon>
+          </ion-col>
+          <ion-col col-6>
+            <div class="time-text">
+              {{info.published_at}}
+            </div>
+          </ion-col>
+        </ion-row>
+        <div (click)="openNewsDetail(info)">
+          <ion-card-title class="text news-title">
+            {{info.title}}
+          </ion-card-title>
+          <p>{{info.description}}</p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <ion-infinite-scroll (ionInfinite)="infiniteScroll($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando dados...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

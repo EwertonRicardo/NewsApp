@@ -1,0 +1,6 @@
+<ion-list>
+  <ion-label>Compartilhar via:</ion-label>
+  <ion-item *ngFor="let btn of buttons" (click)="selectItem(btn)">
+    {{btn.text}}
+  </ion-item>
+</ion-list>

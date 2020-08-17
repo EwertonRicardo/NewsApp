@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, ViewController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, ViewController, NavParams, PopoverController } from 'ionic-angular';
 import { HighlightsModel } from '../../models/highlights.model';
 import { StorageService } from '../../services/storage.service';
+import { PopoverComponent } from '../../components/popover/popover';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 @IonicPage()
 @Component({
@@ -16,7 +18,9 @@ export class NewsDetailsModalPage {
     public navCtrl: NavController,
     public viewController: ViewController,
     public navParams: NavParams,
-    private storageService: StorageService
+    private storageService: StorageService,
+    public popoverCtrl: PopoverController,
+    private socialSharing: SocialSharing
   ) {
     this.getDetails();
   }
@@ -56,14 +60,46 @@ export class NewsDetailsModalPage {
     this.viewController.dismiss();
   }
 
-  public shareNews(): void {
-    console.log('shared');
-  }
-
   public getDetails(): void {
     const details = this.navParams.get('newsDetails');
     if (details) {
       this.newsDetails = details;
     }
   }
+
+  presentPopover(event) {
+    let popover = this.popoverCtrl.create(PopoverComponent);
+    popover.present({
+      ev: event
+    });
+
+    popover.onDidDismiss((popoverData: Options) => {
+      this.shareNews(popoverData.value);
+    });
+  }
+
+  public shareNews(value): void {
+    if (value == 1) {
+      this.socialSharing.shareViaFacebook('Gostaria de compartilhar esse notícia', this.newsDetails.url)
+        .then((e) => console.log('sucesso', e))
+        .catch((err) => console.log('erro', err));
+    }
+
+    if (value == 2) {
+      this.socialSharing.shareViaWhatsApp('Gostaria de compartilhar esse notícia!', this.newsDetails.url)
+        .then((e) => console.log('sucesso', e))
+        .catch((err) => console.log('erro', err));
+    }
+
+    if (value == 3) {
+      this.socialSharing.shareViaSMS('Gostaria de compartilhar esse notícia', this.newsDetails.url)
+        .then((e) => console.log('sucesso', e))
+        .catch((err) => console.log('erro', err));
+    }
+  }
+}
+
+export interface Options {
+  text: string,
+  value: number
 }

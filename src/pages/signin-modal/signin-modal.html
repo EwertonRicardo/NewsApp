@@ -22,7 +22,7 @@
   <label for="password" class="text">Senha</label>
   <input type="password" name="senha" [(ngModel)]="user.password">
 
-  <button ion-button block class="login-btn btn" (click)="login()">Login</button>
+  <button ion-button block class="login-btn btn" (click)="login()" [disabled]="checkIsValid()">Login</button>
   <button ion-button block outline class="text facebook-btn btn">Entrar com o facebook</button>
 
   <div class="flex">

@@ -30,7 +30,7 @@ export class UserProvider {
       return response;
     } catch (error) {
       if (error && error.error) {
-        if (error.error.code.toLowerCase() == ErrorResponseEnum.UserCode) throw AlertsMessageEnum.InvalidCredentials;
+        if (error.error.code && error.error.code.toLowerCase() == ErrorResponseEnum.UserCode) throw AlertsMessageEnum.InvalidCredentials;
       }
 
       throw AlertsMessageEnum.GenericServiceError;

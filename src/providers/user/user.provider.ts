@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { UserModel } from '../../models/user.model';
 import { AlertsMessageEnum } from '../../enums/alerts-message.enum';
 import { ErrorResponseEnum } from '../../enums/error-response.enum';
+import { Platform } from 'ionic-angular';
 
 
 
@@ -14,10 +15,11 @@ export class UserProvider {
   public readonly BASE_URL = `${ENV.BASE_URL}v1/client/auth/`;
 
   constructor(
-    public http: HttpClient
+    public http: HttpClient,
+    private platform: Platform
   ) { }
 
-  async signIn(body: UserModel): Promise<string> {
+  async signIn(body: UserModel): Promise<any> {
     try {
       let url = `${this.BASE_URL}signin`;
       const response = await this.http.post(url, body, { headers: header })
@@ -77,3 +79,25 @@ interface Errors {
   field: string,
   message: string,
 }
+// THIS CODE FIXES THE CORS PROBLEM IN DEVICE
+// if (this.platform.is('cordova')) {
+    //   return new Promise(async (resolve, reject) => {
+    //     let url = `${this.BASE_URL}signin`;
+    //     const http = await (<any>window).cordova.plugin.http;
+    //     await http.sendRequest(url, {
+    //       method: 'post',
+    //       data: body,
+    //       params: {},
+    //       headers: {'Content-Type': 'application/json'},
+    //       responseType: 'text'
+    //     }, (response) => {
+    //       let data = JSON.parse(response.data);
+    //       console.log(data);
+    //       resolve(data);
+    //     }, error => {
+    //       console.log(error);
+    //       reject(AlertsMessageEnum.GenericServiceError);
+    //     })
+    //   });
+
+    // } else {

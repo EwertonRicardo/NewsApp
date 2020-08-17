@@ -1,3 +1,3 @@
 # NewsApp
 
-This app was created to see the news around the world!
+This app was created to show the news around the world!
